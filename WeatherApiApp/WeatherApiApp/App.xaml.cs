@@ -8,14 +8,14 @@ namespace WeatherApiApp
 {
     public partial class App : Application
     {
-        public static TodoManager TodoManager { get; set; }
+        public static RequestManager RequestManager { get; private set; }
 
         public App()
         {
             InitializeComponent();
 
-            TodoManager = new TodoManager(new RestService());
-            MainPage = new NavigationPage(new TodoListPage());
+            RequestManager = new RequestManager(new RestService());
+            MainPage = new NavigationPage(new WeatherPage());
         }
 
         protected override void OnStart()
